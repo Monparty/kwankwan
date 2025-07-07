@@ -44,12 +44,12 @@ import m36 from "../../public/images/m36.jpg";
 import m37 from "../../public/images/m37.jpg";
 import m38 from "../../public/images/m38.jpg";
 import m39 from "../../public/images/m39.jpg";
+import Confetti from './components/Confetti';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
     const tl = gsap.timeline();
-    const boxRef = useRef(null);
     const h1 = useRef(null);
     const h2 = useRef(null);
     const m1Ref = useRef(null);
@@ -59,6 +59,12 @@ export default function Home() {
     const cursorRef = useRef(null);
     const mainRef = useRef(null);
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [showConfetti, setShowConfetti] = useState(false);
+
+    const triggerConfetti = () => {
+    setShowConfetti(true);
+    setTimeout(() => setShowConfetti(false), 3000); // Hide after 3 seconds
+  };
 
     const heart1 = (
         <svg
@@ -139,9 +145,7 @@ export default function Home() {
         </svg>
     );
 
-
     useGSAP(() => {
-        // gsap.to(boxRef.current, { x: 200, duration: 1 });
         gsap.from(h1.current, {
             opacity: 0,
             duration: 1,
@@ -188,20 +192,21 @@ export default function Home() {
             rotate: 5,
         });
 
-        // gsap.fromTo('.mybox', { opacity: 0, y: 50 },
-        //     {
-        //     opacity: 1,
-        //     y: 0,
-        //     scrollTrigger: {
-        //         trigger: boxRef.current,
-        //         start: "top 80%",
-        //         end: "top 30%",
-        //         scrub: true
-        //     }
-        // });
-        
-    }, []);
+        gsap.to('.gridImg', {
+            duration: 1,
+            transition: 1,
+            opacity: 1,
+            stagger: .3,
+            ease: "steps(12)",
+            scrollTrigger: {
+                trigger: '.boxGridImg',
+                start: "top 80%",
+                end: "top 30%",
+                // markers: true,
+            }
+        });
 
+    }, []);
 
     return (
         <div>
@@ -260,32 +265,42 @@ export default function Home() {
                     className="w-40 h-40 rounded-xl left-30 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
                 />
             </section>
-            {/* <div ref={boxRef} className="mybox box h-20">
-                I'm animated!
-            </div> */}
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fce7f3" fill-opacity="1" d="M0,64L12.6,58.7C25.3,53,51,43,76,85.3C101.1,128,126,224,152,224C176.8,224,202,128,227,90.7C252.6,53,278,75,303,112C328.4,149,354,203,379,208C404.2,213,429,171,455,176C480,181,505,235,531,250.7C555.8,267,581,245,606,213.3C631.6,181,657,139,682,138.7C707.4,139,733,181,758,213.3C783.2,245,808,267,834,245.3C858.9,224,884,160,909,149.3C934.7,139,960,181,985,208C1010.5,235,1036,245,1061,229.3C1086.3,213,1112,171,1137,160C1162.1,149,1187,171,1213,154.7C1237.9,139,1263,85,1288,96C1313.7,107,1339,181,1364,192C1389.5,203,1415,149,1427,122.7L1440,96L1440,0L1427.4,0C1414.7,0,1389,0,1364,0C1338.9,0,1314,0,1288,0C1263.2,0,1238,0,1213,0C1187.4,0,1162,0,1137,0C1111.6,0,1086,0,1061,0C1035.8,0,1011,0,985,0C960,0,935,0,909,0C884.2,0,859,0,834,0C808.4,0,783,0,758,0C732.6,0,707,0,682,0C656.8,0,632,0,606,0C581.1,0,556,0,531,0C505.3,0,480,0,455,0C429.5,0,404,0,379,0C353.7,0,328,0,303,0C277.9,0,253,0,227,0C202.1,0,177,0,152,0C126.3,0,101,0,76,0C50.5,0,25,0,13,0L0,0Z"></path></svg>
-            <section>
-                <div className="grid grid-cols-3 lg:grid-cols-4 px-2 lg:px-0 justify-center items-center w-full lg:w-1/2 mx-auto gap-2">
-                    <Image src={m1} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition border-pink-50" />
-                    <Image src={m2} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition border-pink-50" />
-                    <Image src={m3} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition border-pink-50" />
-                    <Image src={m4} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition border-pink-50" />
-                    <Image src={m5} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition border-pink-50" />
-                    <Image src={m6} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition border-pink-50" />
-                    <Image src={m7} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition border-pink-50" />
-                    <Image src={m8} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition border-pink-50" />
-                    <Image src={m9} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition border-pink-50" />
-                    <Image src={m10} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition border-pink-50" />
-                    <Image src={m11} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition border-pink-50" />
-                    <Image src={m12} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition border-pink-50" />
-                    <Image src={m13} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition border-pink-50" />
-                    <Image src={m14} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition border-pink-50" />
-                    <Image src={m15} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition border-pink-50" />
-                    <Image src={m16} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition border-pink-50 hidden lg:block" />
+            <section className="bg-linear-to-t from-pink-100 to-pink-200 pt-20">
+                <div className="boxGridImg">
+                    <div className="grid grid-cols-3 lg:grid-cols-4 px-2 lg:px-0 justify-center items-center w-full lg:w-1/2 mx-auto gap-2">
+                        <Image src={m1} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg" />
+                        <Image src={m2} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg" />
+                        <Image src={m3} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg" />
+                        <Image src={m4} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg" />
+                        <Image src={m5} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg" />
+                        <Image src={m6} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg" />
+                        <Image src={m7} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg" />
+                        <Image src={m8} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg" />
+                        <Image src={m9} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg" />
+                        <Image src={m10} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg" />
+                        <Image src={m11} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg" />
+                        <Image src={m12} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg" />
+                        <Image src={m13} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg" />
+                        <Image src={m14} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg" />
+                        <Image src={m15} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg" />
+                        <Image src={m16} className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg hidden lg:block" />
+                    </div>
+                </div>
+                <div className="flex justify-center pt-20">
+                    <button onClick={triggerConfetti} class="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-pink-600 transition duration-300 ease-out border-2 border-pink-500 rounded-full shadow-md group cursor-pointer">
+                        <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-pink-300 group-hover:translate-x-0 ease">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fb64b6" d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"/></svg>
+                        </span>
+                        <span class="absolute flex items-center justify-center w-full h-full text-pink-500 transition-all duration-300 transform group-hover:translate-x-full ease">Click Me</span>
+                        <span class="relative invisible">Click Me</span>
+                    </button>
+                    {showConfetti && <Confetti active={showConfetti} />}
                 </div>
             </section>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fce7f3" fill-opacity="1" d="M0,64L12.6,58.7C25.3,53,51,43,76,85.3C101.1,128,126,224,152,224C176.8,224,202,128,227,90.7C252.6,53,278,75,303,112C328.4,149,354,203,379,208C404.2,213,429,171,455,176C480,181,505,235,531,250.7C555.8,267,581,245,606,213.3C631.6,181,657,139,682,138.7C707.4,139,733,181,758,213.3C783.2,245,808,267,834,245.3C858.9,224,884,160,909,149.3C934.7,139,960,181,985,208C1010.5,235,1036,245,1061,229.3C1086.3,213,1112,171,1137,160C1162.1,149,1187,171,1213,154.7C1237.9,139,1263,85,1288,96C1313.7,107,1339,181,1364,192C1389.5,203,1415,149,1427,122.7L1440,96L1440,0L1427.4,0C1414.7,0,1389,0,1364,0C1338.9,0,1314,0,1288,0C1263.2,0,1238,0,1213,0C1187.4,0,1162,0,1137,0C1111.6,0,1086,0,1061,0C1035.8,0,1011,0,985,0C960,0,935,0,909,0C884.2,0,859,0,834,0C808.4,0,783,0,758,0C732.6,0,707,0,682,0C656.8,0,632,0,606,0C581.1,0,556,0,531,0C505.3,0,480,0,455,0C429.5,0,404,0,379,0C353.7,0,328,0,303,0C277.9,0,253,0,227,0C202.1,0,177,0,152,0C126.3,0,101,0,76,0C50.5,0,25,0,13,0L0,0Z"></path></svg>
             <Marquee speed={50} pauseOnHover={true}>
-                <div className="flex gap-10 py-6">
+                <div className="flex gap-10 pt-20 pb-10">
                     <Image src={m1} className="w-40 h-40 object-cover rounded-xl border-4 hover:-translate-y-4 transition border-pink-50" />
                     <Image src={m2} className="w-40 h-40 object-cover rounded-xl border-4 hover:-translate-y-4 transition border-pink-50" />
                     <Image src={m3} className="w-40 h-40 object-cover rounded-xl border-4 hover:-translate-y-4 transition border-pink-50" />
@@ -296,11 +311,29 @@ export default function Home() {
                     <Image src={m8} className="w-40 h-40 object-cover rounded-xl border-4 hover:-translate-y-4 transition border-pink-50 mr-10" />
                 </div>
             </Marquee>
+            <Marquee speed={50} pauseOnHover={true} direction={"right"}>
+                <div className="flex gap-10 pb-20">
+                    <Image src={m1} className="w-40 h-40 object-cover rounded-xl border-4 hover:translate-y-4 transition border-pink-50" />
+                    <Image src={m2} className="w-40 h-40 object-cover rounded-xl border-4 hover:translate-y-4 transition border-pink-50" />
+                    <Image src={m3} className="w-40 h-40 object-cover rounded-xl border-4 hover:translate-y-4 transition border-pink-50" />
+                    <Image src={m4} className="w-40 h-40 object-cover rounded-xl border-4 hover:translate-y-4 transition border-pink-50" />
+                    <Image src={m5} className="w-40 h-40 object-cover rounded-xl border-4 hover:translate-y-4 transition border-pink-50" />
+                    <Image src={m6} className="w-40 h-40 object-cover rounded-xl border-4 hover:translate-y-4 transition border-pink-50" />
+                    <Image src={m7} className="w-40 h-40 object-cover rounded-xl border-4 hover:translate-y-4 transition border-pink-50" />
+                    <Image src={m8} className="w-40 h-40 object-cover rounded-xl border-4 hover:translate-y-4 transition border-pink-50 mr-10" />
+                </div>
+            </Marquee>
             <div>
                 <div className="relative group/img m-10">
                     <Image src={m7} className="w-40 h-40 object-cover rounded-xl border-4 border-pink-50 absolute z-20" />
                     <div className="w-42 h-42 rounded-sm bg-pink-300 absolute -top-1 -left-1 z-10 opacity-0 group-hover/img:rotate-15 group-hover/img:opacity-100 transition"></div>
                 </div>
+            </div>
+            <div>
+                scroll snap section
+            </div>
+            <div>
+                flex grow section
             </div>
         </div>
     );
