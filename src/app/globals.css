@@ -23,45 +23,7 @@ body {
     background: var(--background);
     color: var(--foreground);
     font-family: Arial, Helvetica, sans-serif;
-}
-
-.img-cursor {
-    #main {
-        width: 100%;
-        height: 100dvh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    img {
-        width: 70vh;
-        height: 40vh;
-        object-fit: cover;
-        position: relative;
-    }
-
-    #cursor {
-        background-color: red;
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        position: fixed;
-        font-size: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1;
-        color: white;
-    }
-
-    #overlay {
-        width: 70vh;
-        height: 40vh;
-        position: absolute;
-        z-index: 2;
-        background: transparent;
-    }
+    overflow-x: hidden;
 }
 
 /* styles/globals.css or a module CSS file */
@@ -86,3 +48,31 @@ body {
         conic-gradient(from -45deg at 50% 84%, var(--c) 90deg, #0000 0)
             bottom/100% 50% no-repeat;
 }
+
+/* test */
+.img-wrap{
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+
+.overflow-wrap{
+  position: relative;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  img {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    object-fit: contain;
+  }
+}
+
+/* test */
