@@ -26,14 +26,13 @@ body {
     overflow-x: hidden;
 }
 
-/* styles/globals.css or a module CSS file */
 .confetti-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Allows interaction with elements behind */
+    pointer-events: none;
     overflow: hidden;
     z-index: 10;
 }
@@ -49,30 +48,77 @@ body {
             bottom/100% 50% no-repeat;
 }
 
-/* test */
-.img-wrap{
-  width: 100vw;
-  height: 100dvh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-
-}
-
-.overflow-wrap{
-  position: relative;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  img {
-    position: absolute;
-    top: 50%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
+/* img zoom scroll */
+.img-wrap {
     width: 100vw;
-    object-fit: contain;
-  }
+    height: 100dvh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-/* test */
+.overflow-wrap {
+    position: relative;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100vw;
+        object-fit: contain;
+    }
+}
+
+/* img zoom scroll */
+
+.hidden-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* 3d scroll */
+.container-3d {
+    width: 100%;
+    display: flex;
+    align-items: top;
+    justify-content: center;
+
+    .cards {
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .card {
+        position: relative;
+        margin: 50px auto;
+        width: 100%;
+        height: auto;
+    }
+
+    img {
+        max-width: 100%;
+        width: 100%;
+        height: 100dvh;
+        object-fit: cover;
+        will-change: transform, filter;
+    }
+}
+
+.spacer {
+    height: 80vh;
+    position: relative;
+}
+
+.following-content {
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 3d scroll */
