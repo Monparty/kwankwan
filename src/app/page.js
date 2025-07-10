@@ -54,6 +54,11 @@ export default function Home() {
     const h1 = useRef(null);
     const h2 = useRef(null);
     const [showConfetti, setShowConfetti] = useState(false);
+    const [isActive, setIsActive] = useState(false);
+
+    const handleToggle = () => {
+        setIsActive(!isActive);
+    };
 
     const triggerConfetti = () => {
         setShowConfetti(true);
@@ -185,6 +190,8 @@ export default function Home() {
         });
     };
 
+    let mm = gsap.matchMedia();
+
     useGSAP(() => {
         gsap.set(".headtitle", { opacity: 1 });
 
@@ -193,77 +200,80 @@ export default function Home() {
             y: 20,
             autoAlpha: 0,
             repeat: -1,
-            repeatDelay: 4,
+            repeatDelay: 3,
             stagger: 0.05,
+            yoyo: true,
         });
 
-        gsap.to(".headtitle", {
-            scale: 2,
-            transformOrigin: "center center",
-            lineHeight: "200px",
-            ease: "slow(0.9,0.7,false)",
-            scrollTrigger: {
-                trigger: ".section_1",
-                start: "top top",
-                end: "+=100%",
-                pin: true,
-                scrub: true,
-            },
+        mm.add("(width >= 64rem)", () => {
+            gsap.to(".headtitle", {
+                scale: 2,
+                transformOrigin: "center center",
+                lineHeight: "200px",
+                ease: "slow(0.9,0.7,false)",
+                scrollTrigger: {
+                    trigger: ".section_1",
+                    start: "top top",
+                    end: "+=100%",
+                    pin: true,
+                    scrub: true,
+                },
+            });
         });
 
         gsap.to(".imgHero1", {
             opacity: 1,
             duration: 1,
-            delay: 0.5,
+            delay: 1,
             rotate: 5,
         });
 
         gsap.to(".imgHero2", {
             opacity: 1,
             duration: 1,
-            delay: 1,
+            delay: 2,
             rotate: -5,
         });
 
         gsap.to(".imgHero3", {
             opacity: 1,
             duration: 1,
-            delay: 1.5,
-            rotate: -5,
+            delay: 3,
+            rotate: 5,
         });
 
         gsap.to(".imgHero4", {
             opacity: 1,
             duration: 1,
-            delay: 2,
+            delay: 4,
             rotate: -5,
         });
 
         gsap.to(".imgHero5", {
             opacity: 1,
             duration: 1,
-            delay: 2.5,
-            rotate: -5,
+            delay: 5,
+            rotate: 5,
         });
 
         gsap.to(".imgHero6", {
             opacity: 1,
             duration: 1,
-            delay: 3,
+            delay: 6,
             rotate: -5,
         });
 
         gsap.to(".imgHero7", {
             opacity: 1,
             duration: 1,
-            delay: 3.5,
-            rotate: -5,
+            delay: 7,
+            rotate: 5,
         });
 
         gsap.to(".imgHero8", {
             opacity: 1,
             duration: 1,
-            delay: 4,
+            delay: 8,
             rotate: -5,
         });
 
@@ -294,8 +304,10 @@ export default function Home() {
             },
         });
 
+        let widthImgScroll = "60dvw";
+
         gsap.to("#overflow-wrap1", {
-            width: "40dvw",
+            width: widthImgScroll,
             height: "80dvh",
             ease: "none",
             borderRadius: "14px",
@@ -309,7 +321,7 @@ export default function Home() {
         });
 
         gsap.to("#overflow-wrap2", {
-            width: "40dvw",
+            width: widthImgScroll,
             height: "80dvh",
             ease: "none",
             borderRadius: "14px",
@@ -323,7 +335,7 @@ export default function Home() {
         });
 
         gsap.to("#overflow-wrap3", {
-            width: "40dvw",
+            width: widthImgScroll,
             height: "80dvh",
             ease: "none",
             borderRadius: "14px",
@@ -337,7 +349,7 @@ export default function Home() {
         });
 
         gsap.to("#overflow-wrap4", {
-            width: "40dvw",
+            width: widthImgScroll,
             height: "80dvh",
             ease: "none",
             borderRadius: "14px",
@@ -352,7 +364,6 @@ export default function Home() {
 
         let cards = gsap.utils.toArray(".card");
         let stackHeight = window.innerHeight * 0.25;
-        console.log(gsap.utils.checkPrefix("filter"));
         cards.forEach((card, i) => {
             gsap.fromTo(
                 card.querySelector("img"),
@@ -403,17 +414,29 @@ export default function Home() {
 
     return (
         <div>
+            <div className={isActive ? "block" : "hidden"}>
+                <div class="snowflake">💗</div>
+                <div class="snowflake">❤️</div>
+                <div class="snowflake">💝</div>
+                <div class="snowflake">💓</div>
+                <div class="snowflake">💖</div>
+                <div class="snowflake">💗</div>
+                <div class="snowflake">❤️</div>
+                <div class="snowflake">💝</div>
+                <div class="snowflake">💓</div>
+                <div class="snowflake">💖</div>
+            </div>
             <section className="w-full h-dvh bg-linear-to-t from-pink-100 to-pink-300 grid place-items-center relative">
                 <div className="grid gap-6 text-pink-400">
                     <h1
                         ref={h1}
-                        className="text-6xl font-bold text-center headtitle"
+                        className="text-4xl lg:text-6xl font-bold text-center headtitle"
                     >
                         Happy anniversary
                     </h1>
                     <h1
                         ref={h2}
-                        className="text-6xl font-bold text-center headtitle"
+                        className="text-4xl lg:text-6xl font-bold text-center headtitle"
                     >
                         5 month
                     </h1>
@@ -431,49 +454,49 @@ export default function Home() {
                     {heart1}
                 </div>
 
-                <div className="absolute top-40 left-40 animate-[bounce_6s_ease-in-out_infinite]">
+                <div className="absolute left-24 top-40 lg:left-40 animate-[bounce_6s_ease-in-out_infinite]">
                     {heart2}
                 </div>
-                <div className="absolute top-40 right-40 animate-[bounce_4s_ease-in-out_infinite]">
+                <div className="absolute right-24 top-40 lg:right-40 animate-[bounce_4s_ease-in-out_infinite]">
                     {heart1}
                 </div>
-                <div className="absolute bottom-40 left-40 animate-[bounce_4s_ease-in-out_infinite]">
+                <div className="absolute bottom-50 left-5 lg:bottom-40 lg:left-40 animate-[bounce_4s_ease-in-out_infinite]">
                     {heart1}
                 </div>
-                <div className="absolute bottom-40 right-40 animate-[bounce_5s_ease-in-out_infinite]">
+                <div className="absolute bottom-50 right-5 lg:bottom-40 lg:right-40 animate-[bounce_5s_ease-in-out_infinite]">
                     {heart2}
                 </div>
                 <Image
                     src={m1}
-                    className="imgHero1 w-40 h-40 rounded-xl top-14 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
+                    className="imgHero1 w-40 h-40 rounded-xl bottom-10 lg:top-14 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
                 />
                 <Image
                     src={m2}
-                    className="imgHero2 w-40 h-40 rounded-xl top-24 right-80 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
+                    className="imgHero2 w-40 h-40 rounded-xl bottom-10 lg:top-24 lg:right-80 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
                 />
                 <Image
                     src={m3}
-                    className="imgHero3 w-40 h-40 rounded-xl right-30 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
+                    className="imgHero3 w-40 h-40 rounded-xl bottom-10 lg:bottom-2/5 lg:right-30 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
                 />
                 <Image
                     src={m4}
-                    className="imgHero4 w-40 h-40 rounded-xl bottom-24 right-80 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
+                    className="imgHero4 w-40 h-40 rounded-xl bottom-10 lg:bottom-24 lg:right-80 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
                 />
                 <Image
                     src={m5}
-                    className="imgHero5 w-40 h-40 rounded-xl bottom-14 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
+                    className="imgHero5 w-40 h-40 rounded-xl bottom-10 lg:bottom-14 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
                 />
                 <Image
                     src={m6}
-                    className="imgHero6 w-40 h-40 rounded-xl bottom-24 left-80 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
+                    className="imgHero6 w-40 h-40 rounded-xl bottom-10 lg:bottom-24 lg:left-80 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
                 />
                 <Image
                     src={m7}
-                    className="imgHero7 w-40 h-40 rounded-xl left-30 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
+                    className="imgHero7 w-40 h-40 rounded-xl bottom-10 lg:bottom-2/5 lg:left-30 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
                 />
                 <Image
                     src={m8}
-                    className="imgHero8 w-40 h-40 rounded-xl top-30 left-80 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
+                    className="imgHero8 w-40 h-40 rounded-xl bottom-10 lg:top-30 lg:left-80 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
                 />
             </section>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -552,7 +575,7 @@ export default function Home() {
                         />
                     </div>
                 </div>
-                <div className="flex justify-center pt-20">
+                <div className="flex justify-center pt-10 lg:pt-20">
                     <button
                         onClick={triggerConfetti}
                         id="btnConfetti"
@@ -624,7 +647,7 @@ export default function Home() {
             </Marquee>
             <section className="w-full flex items-center justify-center gap-6">
                 <button
-                    className="flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full hover:bg-pink-400"
+                    className="hidden lg:flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full hover:bg-pink-400"
                     onClick={scrollLeft}
                 >
                     {arrow}
@@ -659,12 +682,34 @@ export default function Home() {
                     />
                 </div>
                 <button
-                    className="flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full rotate-180 hover:bg-pink-400"
+                    className="hidden lg:flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full rotate-180 hover:bg-pink-400"
                     onClick={scrollRight}
                 >
                     {arrow}
                 </button>
             </section>
+            <div className="flex lg:hidden justify-center gap-5 pt-10 lg:pt-20">
+                <button
+                    className="flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full hover:bg-pink-400"
+                    onClick={scrollLeft}
+                >
+                    {arrow}
+                </button>
+                <button
+                    className="flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full rotate-180 hover:bg-pink-400"
+                    onClick={scrollRight}
+                >
+                    {arrow}
+                </button>
+            </div>
+            <div className="flex justify-center pt-5">
+                <button
+                    className="flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full hover:bg-pink-400"
+                    onClick={handleToggle}
+                >
+                    ❤️
+                </button>
+            </div>
             <Marquee speed={50} pauseOnHover={true} direction={"right"}>
                 <div className="flex gap-10 py-20">
                     <Image
@@ -710,47 +755,35 @@ export default function Home() {
             </svg>
             <section className="bg-linear-to-t from-pink-100 to-pink-300">
                 <div
-                    className="w-full h-dvh flex items-center justify-end pr-20 overflow-hidden"
+                    className="w-full h-dvh flex items-center justify-end pr-10 lg:pr-20 overflow-hidden"
                     id="img-wrap1"
                 >
-                    <div
-                        className="overflow-wrap shadow-lg border-4 border-pink-50"
-                        id="overflow-wrap1"
-                    >
+                    <div className="overflow-wrap" id="overflow-wrap1">
                         <Image src={m7} />
                     </div>
                 </div>
                 <div
-                    className="w-full h-dvh flex items-center justify-start pl-20 overflow-hidden"
+                    className="w-full h-dvh flex items-center justify-start pl-10 lg:pl-20 overflow-hidden"
                     id="img-wrap2"
                 >
-                    <div
-                        className="overflow-wrap shadow-lg border-4 border-pink-50"
-                        id="overflow-wrap2"
-                    >
+                    <div className="overflow-wrap" id="overflow-wrap2">
                         <Image src={m8} />
                     </div>
                 </div>
                 <div
-                    className="w-full h-dvh flex items-center justify-end pr-20 overflow-hidden"
+                    className="w-full h-dvh flex items-center justify-end pr-10 lg:pr-20 overflow-hidden"
                     id="img-wrap3"
                 >
-                    <div
-                        className="overflow-wrap shadow-lg border-4 border-pink-50"
-                        id="overflow-wrap3"
-                    >
+                    <div className="overflow-wrap" id="overflow-wrap3">
                         <Image src={m9} />
                     </div>
                 </div>
                 <div
-                    className="w-full h-dvh flex items-center justify-start pl-20 overflow-hidden"
+                    className="w-full h-dvh flex items-center justify-start pl-10 lg:pl-20 overflow-hidden"
                     id="img-wrap4"
                 >
-                    <div
-                        className="overflow-wrap shadow-lg border-4 border-pink-50"
-                        id="overflow-wrap4"
-                    >
-                        <Image src={m10} />
+                    <div className="overflow-wrap" id="overflow-wrap4">
+                        <Image src={m15} />
                     </div>
                 </div>
             </section>
@@ -785,7 +818,9 @@ export default function Home() {
                 </div>
             </div>
             <div className="following-content bg-linear-to-t from-pink-400 to-pink-300">
-                <div className="text-2xl! font-bold text-white headtitle">I love you</div>
+                <div className="text-2xl! font-bold text-white headtitle">
+                    I love you
+                </div>
                 <button
                     onClick={scrollToTop}
                     className="absolute bottom-10 right-10 z-10 flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full hover:bg-pink-400 rotate-90"
