@@ -45,8 +45,10 @@ import m37 from "../../public/images/m37.jpg";
 import m38 from "../../public/images/m38.jpg";
 import m39 from "../../public/images/m39.jpg";
 import Confetti from "./components/Confetti";
+import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText);
 
 export default function Home() {
     const h1 = useRef(null);
@@ -184,20 +186,15 @@ export default function Home() {
     };
 
     useGSAP(() => {
-        gsap.from(h1.current, {
-            opacity: 0,
-            duration: 1,
-            delay: 0.5,
-            y: 30,
-            stagger: 0.5,
-        });
+        gsap.set(".headtitle", { opacity: 1 });
 
-        gsap.from(h2.current, {
-            opacity: 0,
-            duration: 1,
-            delay: 1,
-            y: 30,
-            stagger: 0.5,
+        let split = SplitText.create(".headtitle", { type: "chars" });
+        gsap.from(split.chars, {
+            y: 20,
+            autoAlpha: 0,
+            repeat: -1,
+            repeatDelay: 4,
+            stagger: 0.05,
         });
 
         gsap.to(".headtitle", {
@@ -217,9 +214,8 @@ export default function Home() {
         gsap.to(".imgHero1", {
             opacity: 1,
             duration: 1,
-            delay: 1,
+            delay: 0.5,
             rotate: 5,
-            stagger: 1,
         });
 
         gsap.to(".imgHero2", {
@@ -227,7 +223,48 @@ export default function Home() {
             duration: 1,
             delay: 1,
             rotate: -5,
-            stagger: 1,
+        });
+
+        gsap.to(".imgHero3", {
+            opacity: 1,
+            duration: 1,
+            delay: 1.5,
+            rotate: -5,
+        });
+
+        gsap.to(".imgHero4", {
+            opacity: 1,
+            duration: 1,
+            delay: 2,
+            rotate: -5,
+        });
+
+        gsap.to(".imgHero5", {
+            opacity: 1,
+            duration: 1,
+            delay: 2.5,
+            rotate: -5,
+        });
+
+        gsap.to(".imgHero6", {
+            opacity: 1,
+            duration: 1,
+            delay: 3,
+            rotate: -5,
+        });
+
+        gsap.to(".imgHero7", {
+            opacity: 1,
+            duration: 1,
+            delay: 3.5,
+            rotate: -5,
+        });
+
+        gsap.to(".imgHero8", {
+            opacity: 1,
+            duration: 1,
+            delay: 4,
+            rotate: -5,
         });
 
         gsap.to(".gridImg", {
@@ -416,27 +453,27 @@ export default function Home() {
                 />
                 <Image
                     src={m3}
-                    className="imgHero1 w-40 h-40 rounded-xl right-30 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
+                    className="imgHero3 w-40 h-40 rounded-xl right-30 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
                 />
                 <Image
                     src={m4}
-                    className="imgHero2 w-40 h-40 rounded-xl bottom-24 right-80 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
+                    className="imgHero4 w-40 h-40 rounded-xl bottom-24 right-80 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
                 />
                 <Image
                     src={m5}
-                    className="imgHero1 w-40 h-40 rounded-xl bottom-14 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
+                    className="imgHero5 w-40 h-40 rounded-xl bottom-14 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
                 />
                 <Image
                     src={m6}
-                    className="imgHero2 w-40 h-40 rounded-xl bottom-24 left-80 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
+                    className="imgHero6 w-40 h-40 rounded-xl bottom-24 left-80 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
                 />
                 <Image
                     src={m7}
-                    className="imgHero1 w-40 h-40 rounded-xl left-30 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
+                    className="imgHero7 w-40 h-40 rounded-xl left-30 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
                 />
                 <Image
                     src={m8}
-                    className="imgHero2 w-40 h-40 rounded-xl top-30 left-80 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
+                    className="imgHero8 w-40 h-40 rounded-xl top-30 left-80 absolute object-cover opacity-0 hover:w-45 hover:h-45 duration-300 border-4 border-pink-50"
                 />
             </section>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -519,7 +556,7 @@ export default function Home() {
                     <button
                         onClick={triggerConfetti}
                         id="btnConfetti"
-                        className="opacity-0 relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-pink-600 transition duration-300 ease-out border-2 border-pink-500 rounded-full shadow-md group cursor-pointer"
+                        className="opacity-0 relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-medium text-pink-600 transition duration-300 ease-out border-2 border-pink-500 rounded-full shadow-md group cursor-pointer"
                     >
                         <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-pink-300 group-hover:translate-x-0 ease">
                             <svg
@@ -587,7 +624,7 @@ export default function Home() {
             </Marquee>
             <section className="w-full flex items-center justify-center gap-6">
                 <button
-                    className="flex justify-center items-center cursor-pointer bg-pink-300 h-20 w-20 rounded-full hover:bg-pink-400"
+                    className="flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full hover:bg-pink-400"
                     onClick={scrollLeft}
                 >
                     {arrow}
@@ -622,7 +659,7 @@ export default function Home() {
                     />
                 </div>
                 <button
-                    className="flex justify-center items-center cursor-pointer bg-pink-300 h-20 w-20 rounded-full rotate-180 hover:bg-pink-400"
+                    className="flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full rotate-180 hover:bg-pink-400"
                     onClick={scrollRight}
                 >
                     {arrow}
@@ -748,10 +785,10 @@ export default function Home() {
                 </div>
             </div>
             <div className="following-content bg-linear-to-t from-pink-400 to-pink-300">
-                <div className="text-2xl font-bold text-white">I love you</div>
+                <div className="text-2xl! font-bold text-white headtitle">I love you</div>
                 <button
                     onClick={scrollToTop}
-                    className="absolute bottom-10 right-10 z-10 flex justify-center items-center cursor-pointer bg-pink-300 h-12 w-12 rounded-full hover:bg-pink-400 rotate-90"
+                    className="absolute bottom-10 right-10 z-10 flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full hover:bg-pink-400 rotate-90"
                 >
                     {arrow}
                 </button>
