@@ -2,7 +2,9 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/SplitText";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import Confetti from "./components/Confetti";
 import Marquee from "react-fast-marquee";
 import gsap from "gsap";
 import m1 from "../../public/images/m1.jpg";
@@ -44,8 +46,17 @@ import m36 from "../../public/images/m36.jpg";
 import m37 from "../../public/images/m37.jpg";
 import m38 from "../../public/images/m38.jpg";
 import m39 from "../../public/images/m39.jpg";
-import Confetti from "./components/Confetti";
-import { SplitText } from "gsap/SplitText";
+import m40 from "../../public/images/m40.jpg";
+import m41 from "../../public/images/m41.jpg";
+import m42 from "../../public/images/m42.jpg";
+import m43 from "../../public/images/m43.jpg";
+import m44 from "../../public/images/m44.jpg";
+import m45 from "../../public/images/m45.jpg";
+import m46 from "../../public/images/m46.jpg";
+import m47 from "../../public/images/m47.jpg";
+import m48 from "../../public/images/m48.jpg";
+import m49 from "../../public/images/m49.jpg";
+import m50 from "../../public/images/m50.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(SplitText);
@@ -364,6 +375,7 @@ export default function Home() {
 
         let cards = gsap.utils.toArray(".card");
         let stackHeight = window.innerHeight * 0.25;
+
         cards.forEach((card, i) => {
             gsap.fromTo(
                 card.querySelector("img"),
@@ -511,67 +523,67 @@ export default function Home() {
                     <div className="grid grid-cols-3 lg:grid-cols-4 px-2 lg:px-0 justify-center items-center w-full lg:w-1/2 mx-auto gap-2">
                         <Image
                             src={m9}
-                            className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
+                            className="w-full h-40 lg:h-60 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
                         />
                         <Image
                             src={m10}
-                            className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
+                            className="w-full h-40 lg:h-60 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
                         />
                         <Image
                             src={m11}
-                            className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
+                            className="w-full h-40 lg:h-60 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
                         />
                         <Image
                             src={m12}
-                            className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
+                            className="w-full h-40 lg:h-60 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
                         />
                         <Image
                             src={m13}
-                            className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
+                            className="w-full h-40 lg:h-60 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
                         />
                         <Image
                             src={m14}
-                            className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
+                            className="w-full h-40 lg:h-60 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
                         />
                         <Image
                             src={m15}
-                            className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
+                            className="w-full h-40 lg:h-60 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
                         />
                         <Image
                             src={m16}
-                            className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
+                            className="w-full h-40 lg:h-60 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
                         />
                         <Image
                             src={m17}
-                            className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
+                            className="w-full h-40 lg:h-60 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
                         />
                         <Image
                             src={m18}
-                            className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
+                            className="w-full h-40 lg:h-60 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
                         />
                         <Image
                             src={m19}
-                            className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
+                            className="w-full h-40 lg:h-60 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
                         />
                         <Image
                             src={m20}
-                            className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
+                            className="w-full h-40 lg:h-60 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
                         />
                         <Image
                             src={m21}
-                            className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
-                        />
-                        <Image
-                            src={m14}
-                            className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
+                            className="w-full h-40 lg:h-60 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
                         />
                         <Image
                             src={m22}
-                            className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
+                            className="w-full h-40 lg:h-60 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
                         />
                         <Image
                             src={m23}
-                            className="w-full h-40 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg hidden lg:block"
+                            className="w-full h-40 lg:h-60 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg"
+                        />
+                        <Image
+                            src={m24}
+                            className="w-full h-40 lg:h-60 object-cover rounded-xl border-4 hover:scale-125 hover:z-10 transition! border-pink-50 opacity-0 gridImg hidden lg:block"
                         />
                     </div>
                 </div>
@@ -612,42 +624,42 @@ export default function Home() {
             <Marquee speed={50} pauseOnHover={true}>
                 <div className="flex gap-10 py-20">
                     <Image
-                        src={m24}
-                        className="w-40 h-40 object-cover rounded-xl border-4 -translate-y-4 hover:-translate-y-6 transition border-pink-50"
-                    />
-                    <Image
                         src={m25}
-                        className="w-40 h-40 object-cover rounded-xl border-4 hover:-translate-y-6 transition border-pink-50"
+                        className="w-40 h-40 object-cover rounded-xl border-4 -translate-y-4 hover:-translate-y-6 transition border-pink-50"
                     />
                     <Image
                         src={m26}
-                        className="w-40 h-40 object-cover rounded-xl border-4 -translate-y-4 hover:-translate-y-6 transition border-pink-50"
+                        className="w-40 h-40 object-cover rounded-xl border-4 hover:-translate-y-6 transition border-pink-50"
                     />
                     <Image
                         src={m27}
-                        className="w-40 h-40 object-cover rounded-xl border-4 hover:-translate-y-6 transition border-pink-50"
+                        className="w-40 h-40 object-cover rounded-xl border-4 -translate-y-4 hover:-translate-y-6 transition border-pink-50"
                     />
                     <Image
                         src={m28}
-                        className="w-40 h-40 object-cover rounded-xl border-4 -translate-y-4 hover:-translate-y-6 transition border-pink-50"
-                    />
-                    <Image
-                        src={m29}
                         className="w-40 h-40 object-cover rounded-xl border-4 hover:-translate-y-6 transition border-pink-50"
                     />
                     <Image
-                        src={m30}
+                        src={m29}
                         className="w-40 h-40 object-cover rounded-xl border-4 -translate-y-4 hover:-translate-y-6 transition border-pink-50"
                     />
                     <Image
+                        src={m30}
+                        className="w-40 h-40 object-cover rounded-xl border-4 hover:-translate-y-6 transition border-pink-50"
+                    />
+                    <Image
                         src={m31}
+                        className="w-40 h-40 object-cover rounded-xl border-4 -translate-y-4 hover:-translate-y-6 transition border-pink-50"
+                    />
+                    <Image
+                        src={m32}
                         className="w-40 h-40 object-cover rounded-xl border-4 hover:-translate-y-6 transition border-pink-50 mr-10"
                     />
                 </div>
             </Marquee>
             <section className="w-full flex items-center justify-center gap-6">
                 <button
-                    className="hidden lg:flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full hover:bg-pink-400"
+                    className="hidden lg:flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full hover:bg-pink-400 active:bg-pink-400"
                     onClick={scrollLeft}
                 >
                     {arrow}
@@ -656,10 +668,6 @@ export default function Home() {
                     className="snap-x flex overflow-x-scroll gap-4 snap-mandatory w-80 border-4 border-pink-50 rounded-xl hidden-scrollbar"
                     ref={scrollableDivRef}
                 >
-                    <Image
-                        src={m32}
-                        className="snap-center w-full h-80 object-cover"
-                    />
                     <Image
                         src={m33}
                         className="snap-center w-full h-80 object-cover"
@@ -680,9 +688,13 @@ export default function Home() {
                         src={m37}
                         className="snap-center w-full h-80 object-cover"
                     />
+                    <Image
+                        src={m38}
+                        className="snap-center w-full h-80 object-cover"
+                    />
                 </div>
                 <button
-                    className="hidden lg:flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full rotate-180 hover:bg-pink-400"
+                    className="hidden lg:flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full rotate-180 hover:bg-pink-400 active:bg-pink-400"
                     onClick={scrollRight}
                 >
                     {arrow}
@@ -690,13 +702,13 @@ export default function Home() {
             </section>
             <div className="flex lg:hidden justify-center gap-5 pt-10 lg:pt-20">
                 <button
-                    className="flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full hover:bg-pink-400"
+                    className="flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full hover:bg-pink-400 active:bg-pink-400"
                     onClick={scrollLeft}
                 >
                     {arrow}
                 </button>
                 <button
-                    className="flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full rotate-180 hover:bg-pink-400"
+                    className="flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full rotate-180 hover:bg-pink-400 active:bg-pink-400"
                     onClick={scrollRight}
                 >
                     {arrow}
@@ -704,7 +716,7 @@ export default function Home() {
             </div>
             <div className="flex justify-center pt-5">
                 <button
-                    className="flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full hover:bg-pink-400"
+                    className="flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full hover:bg-pink-400 active:bg-pink-400"
                     onClick={handleToggle}
                 >
                     ❤️
@@ -713,35 +725,35 @@ export default function Home() {
             <Marquee speed={50} pauseOnHover={true} direction={"right"}>
                 <div className="flex gap-10 py-20">
                     <Image
-                        src={m38}
-                        className="w-40 h-40 object-cover rounded-xl border-4 translate-y-4 hover:translate-y-6 transition border-pink-50"
-                    />
-                    <Image
                         src={m39}
-                        className="w-40 h-40 object-cover rounded-xl border-4 hover:translate-y-6 transition border-pink-50"
-                    />
-                    <Image
-                        src={m1}
                         className="w-40 h-40 object-cover rounded-xl border-4 translate-y-4 hover:translate-y-6 transition border-pink-50"
                     />
                     <Image
-                        src={m2}
+                        src={m40}
                         className="w-40 h-40 object-cover rounded-xl border-4 hover:translate-y-6 transition border-pink-50"
                     />
                     <Image
-                        src={m3}
+                        src={m41}
                         className="w-40 h-40 object-cover rounded-xl border-4 translate-y-4 hover:translate-y-6 transition border-pink-50"
                     />
                     <Image
-                        src={m4}
+                        src={m42}
                         className="w-40 h-40 object-cover rounded-xl border-4 hover:translate-y-6 transition border-pink-50"
                     />
                     <Image
-                        src={m5}
+                        src={m43}
                         className="w-40 h-40 object-cover rounded-xl border-4 translate-y-4 hover:translate-y-6 transition border-pink-50"
                     />
                     <Image
-                        src={m6}
+                        src={m44}
+                        className="w-40 h-40 object-cover rounded-xl border-4 hover:translate-y-6 transition border-pink-50"
+                    />
+                    <Image
+                        src={m45}
+                        className="w-40 h-40 object-cover rounded-xl border-4 translate-y-4 hover:translate-y-6 transition border-pink-50"
+                    />
+                    <Image
+                        src={m46}
                         className="w-40 h-40 object-cover rounded-xl border-4 hover:translate-y-6 transition border-pink-50 mr-10"
                     />
                 </div>
@@ -759,7 +771,7 @@ export default function Home() {
                     id="img-wrap1"
                 >
                     <div className="overflow-wrap" id="overflow-wrap1">
-                        <Image src={m7} />
+                        <Image src={m47} className="rounded-xl outline-4 outline-pink-50" />
                     </div>
                 </div>
                 <div
@@ -767,7 +779,7 @@ export default function Home() {
                     id="img-wrap2"
                 >
                     <div className="overflow-wrap" id="overflow-wrap2">
-                        <Image src={m8} />
+                        <Image src={m48} className="rounded-xl border-4 border-pink-50" />
                     </div>
                 </div>
                 <div
@@ -775,7 +787,7 @@ export default function Home() {
                     id="img-wrap3"
                 >
                     <div className="overflow-wrap" id="overflow-wrap3">
-                        <Image src={m9} />
+                        <Image src={m49} className="rounded-xl border-4 border-pink-50" />
                     </div>
                 </div>
                 <div
@@ -783,7 +795,7 @@ export default function Home() {
                     id="img-wrap4"
                 >
                     <div className="overflow-wrap" id="overflow-wrap4">
-                        <Image src={m15} />
+                        <Image src={m50} className="rounded-xl border-4 border-pink-50" />
                     </div>
                 </div>
             </section>
@@ -798,32 +810,44 @@ export default function Home() {
             <div className="container-3d">
                 <div className="cards">
                     <div className="card">
-                        <Image src={m11} />
+                        <Image src={m2} className="rounded-xl border-4 border-pink-50" />
                     </div>
                     <div className="card">
-                        <Image src={m12} />
+                        <Image src={m12} className="rounded-xl border-4 border-pink-50" />
                     </div>
                     <div className="card">
-                        <Image src={m13} />
+                        <Image src={m30} className="rounded-xl border-4 border-pink-50" />
                     </div>
                     <div className="card">
-                        <Image src={m14} />
+                        <Image src={m31} className="rounded-xl border-4 border-pink-50" />
                     </div>
                     <div className="card">
-                        <Image src={m15} />
+                        <Image src={m36} className="rounded-xl border-4 border-pink-50" />
                     </div>
                     <div className="card">
-                        <Image src={m16} />
+                        <Image src={m37} className="rounded-xl border-4 border-pink-50" />
+                    </div>
+                    <div className="card">
+                        <Image src={m38} className="rounded-xl border-4 border-pink-50" />
+                    </div>
+                    <div className="card">
+                        <Image src={m39} className="rounded-xl border-4 border-pink-50" />
+                    </div>
+                    <div className="card">
+                        <Image src={m40} className="rounded-xl border-4 border-pink-50" />
                     </div>
                 </div>
             </div>
             <div className="following-content bg-linear-to-t from-pink-400 to-pink-300">
-                <div className="text-2xl! font-bold text-white headtitle">
-                    I love you
+                <div className="text-2xl! font-bold text-white pb-4">
+                    I'm so lucky to have you. Thank you for always supporting me
+                </div>
+                <div className="text-2xl! font-bold text-white">
+                    I love you 💗
                 </div>
                 <button
                     onClick={scrollToTop}
-                    className="absolute bottom-10 right-10 z-10 flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full hover:bg-pink-400 rotate-90"
+                    className="absolute bottom-10 right-10 z-10 flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full hover:bg-pink-400 active:bg-pink-400 rotate-90"
                 >
                     {arrow}
                 </button>
