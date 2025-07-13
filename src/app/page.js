@@ -57,6 +57,9 @@ import m47 from "../../public/images/m47.jpg";
 import m48 from "../../public/images/m48.jpg";
 import m49 from "../../public/images/m49.jpg";
 import m50 from "../../public/images/m50.jpg";
+import m51 from "../../public/images/m51.jpg";
+import m52 from "../../public/images/m52.jpg";
+import m53 from "../../public/images/m53.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(SplitText);
@@ -373,6 +376,34 @@ export default function Home() {
             },
         });
 
+        gsap.to("#overflow-wrap5", {
+            width: widthImgScroll,
+            height: "80dvh",
+            ease: "none",
+            borderRadius: "14px",
+            scrollTrigger: {
+                trigger: "#img-wrap5",
+                start: "center center",
+                end: "+=100%",
+                pin: true,
+                scrub: true,
+            },
+        });
+
+        gsap.to("#overflow-wrap6", {
+            width: widthImgScroll,
+            height: "80dvh",
+            ease: "none",
+            borderRadius: "14px",
+            scrollTrigger: {
+                trigger: "#img-wrap6",
+                start: "center center",
+                end: "+=100%",
+                pin: true,
+                scrub: true,
+            },
+        });
+
         let cards = gsap.utils.toArray(".card");
         let stackHeight = window.innerHeight * 0.25;
 
@@ -607,7 +638,7 @@ export default function Home() {
                             </svg>
                         </span>
                         <span className="absolute flex items-center justify-center w-full h-full text-pink-500 transition-all duration-300 transform group-hover:translate-x-full ease">
-                            Click Me
+                            My Heart
                         </span>
                         <span className="relative invisible">Click Me</span>
                     </button>
@@ -655,6 +686,10 @@ export default function Home() {
                         src={m32}
                         className="w-40 h-40 object-cover rounded-xl border-4 hover:-translate-y-6 transition border-pink-50 mr-10"
                     />
+                    <Image
+                        src={m48}
+                        className="w-40 h-40 object-cover rounded-xl border-4 hover:-translate-y-6 transition border-pink-50 mr-10"
+                    />
                 </div>
             </Marquee>
             <section className="w-full flex items-center justify-center gap-6">
@@ -690,6 +725,10 @@ export default function Home() {
                     />
                     <Image
                         src={m38}
+                        className="snap-center w-full h-80 object-cover"
+                    />
+                    <Image
+                        src={m53}
                         className="snap-center w-full h-80 object-cover"
                     />
                 </div>
@@ -771,7 +810,7 @@ export default function Home() {
                     id="img-wrap1"
                 >
                     <div className="overflow-wrap" id="overflow-wrap1">
-                        <Image src={m47} className="rounded-xl outline-4 outline-pink-50" />
+                        <Image src={m13} className="rounded-xl outline-4 outline-pink-50" />
                     </div>
                 </div>
                 <div
@@ -779,7 +818,7 @@ export default function Home() {
                     id="img-wrap2"
                 >
                     <div className="overflow-wrap" id="overflow-wrap2">
-                        <Image src={m48} className="rounded-xl border-4 border-pink-50" />
+                        <Image src={m14} className="rounded-xl border-4 border-pink-50" />
                     </div>
                 </div>
                 <div
@@ -787,7 +826,7 @@ export default function Home() {
                     id="img-wrap3"
                 >
                     <div className="overflow-wrap" id="overflow-wrap3">
-                        <Image src={m49} className="rounded-xl border-4 border-pink-50" />
+                        <Image src={m19} className="rounded-xl border-4 border-pink-50" />
                     </div>
                 </div>
                 <div
@@ -795,7 +834,23 @@ export default function Home() {
                     id="img-wrap4"
                 >
                     <div className="overflow-wrap" id="overflow-wrap4">
-                        <Image src={m50} className="rounded-xl border-4 border-pink-50" />
+                        <Image src={m28} className="rounded-xl border-4 border-pink-50" />
+                    </div>
+                </div>
+                <div
+                    className="w-full h-dvh flex items-center justify-end pl-10 lg:pl-20 overflow-hidden"
+                    id="img-wrap5"
+                >
+                    <div className="overflow-wrap" id="overflow-wrap5">
+                        <Image src={m29} className="rounded-xl border-4 border-pink-50" />
+                    </div>
+                </div>
+                <div
+                    className="w-full h-dvh flex items-center justify-start pl-10 lg:pl-20 overflow-hidden"
+                    id="img-wrap6"
+                >
+                    <div className="overflow-wrap" id="overflow-wrap6">
+                        <Image src={m49} className="rounded-xl border-4 border-pink-50" />
                     </div>
                 </div>
             </section>
@@ -810,37 +865,37 @@ export default function Home() {
             <div className="container-3d">
                 <div className="cards">
                     <div className="card">
-                        <Image src={m2} className="rounded-xl border-4 border-pink-50" />
+                        <Image src={m4} className="rounded-xl border-4 border-pink-50 object-cover" />
                     </div>
                     <div className="card">
-                        <Image src={m12} className="rounded-xl border-4 border-pink-50" />
+                        <Image src={m47} className="rounded-xl border-4 border-pink-50 object-cover" />
                     </div>
                     <div className="card">
-                        <Image src={m30} className="rounded-xl border-4 border-pink-50" />
+                        <Image src={m33} className="rounded-xl border-4 border-pink-50 object-cover" />
                     </div>
                     <div className="card">
-                        <Image src={m31} className="rounded-xl border-4 border-pink-50" />
+                        <Image src={m50} className="rounded-xl border-4 border-pink-50 object-cover" />
                     </div>
                     <div className="card">
-                        <Image src={m36} className="rounded-xl border-4 border-pink-50" />
+                        <Image src={m51} className="rounded-xl border-4 border-pink-50 object-cover" />
                     </div>
                     <div className="card">
-                        <Image src={m37} className="rounded-xl border-4 border-pink-50" />
+                        <Image src={m52} className="rounded-xl border-4 border-pink-50 object-cover" />
                     </div>
                     <div className="card">
-                        <Image src={m38} className="rounded-xl border-4 border-pink-50" />
+                        <Image src={m53} className="rounded-xl border-4 border-pink-50 object-cover" />
                     </div>
                     <div className="card">
-                        <Image src={m39} className="rounded-xl border-4 border-pink-50" />
+                        <Image src={m40} className="rounded-xl border-4 border-pink-50 object-cover" />
                     </div>
                     <div className="card">
-                        <Image src={m40} className="rounded-xl border-4 border-pink-50" />
+                        <Image src={m1} className="rounded-xl border-4 border-pink-50 object-cover" />
                     </div>
                 </div>
             </div>
             <div className="following-content bg-linear-to-t from-pink-400 to-pink-300">
                 <div className="text-2xl! font-bold text-white pb-4">
-                    I'm so lucky to have you. Thank you for always supporting me
+                    I'm so lucky to have you.<br />Thank you for always supporting me
                 </div>
                 <div className="text-2xl! font-bold text-white">
                     I love you 💗
