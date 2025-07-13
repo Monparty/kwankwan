@@ -810,7 +810,7 @@ export default function Home() {
                     id="img-wrap1"
                 >
                     <div className="overflow-wrap" id="overflow-wrap1">
-                        <Image src={m13} className="rounded-xl outline-4 outline-pink-50" />
+                        <Image src={m13} className="rounded-xl border-4 border-pink-50" />
                     </div>
                 </div>
                 <div
@@ -838,7 +838,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div
-                    className="w-full h-dvh flex items-center justify-end pl-10 lg:pl-20 overflow-hidden"
+                    className="w-full h-dvh flex items-center justify-end pr-10 lg:pr-20 overflow-hidden"
                     id="img-wrap5"
                 >
                     <div className="overflow-wrap" id="overflow-wrap5">
