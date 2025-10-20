@@ -809,48 +809,48 @@ export default function Home() {
                     className="w-full h-dvh flex items-center justify-end pr-10 lg:pr-20 overflow-hidden"
                     id="img-wrap1"
                 >
-                    <div className="overflow-wrap" id="overflow-wrap1">
-                        <Image src={m13} className="rounded-xl border-4 border-pink-50" />
+                    <div className="overflow-wrap border-4 border-pink-50 rounded-xl" id="overflow-wrap1">
+                        <img src={'/images/m13.jpg'} className="object-cover! h-full" />
                     </div>
                 </div>
                 <div
                     className="w-full h-dvh flex items-center justify-start pl-10 lg:pl-20 overflow-hidden"
                     id="img-wrap2"
                 >
-                    <div className="overflow-wrap" id="overflow-wrap2">
-                        <Image src={m14} className="rounded-xl border-4 border-pink-50" />
+                    <div className="overflow-wrap rounded-xl border-4 border-pink-50" id="overflow-wrap2">
+                        <img src={'/images/m14.jpg'} className="object-cover! h-full" />
                     </div>
                 </div>
                 <div
                     className="w-full h-dvh flex items-center justify-end pr-10 lg:pr-20 overflow-hidden"
                     id="img-wrap3"
                 >
-                    <div className="overflow-wrap" id="overflow-wrap3">
-                        <Image src={m19} className="rounded-xl border-4 border-pink-50" />
+                    <div className="overflow-wrap rounded-xl border-4 border-pink-50" id="overflow-wrap3">
+                        <img src={'/images/m19.jpg'} className="object-cover! h-full" />
                     </div>
                 </div>
                 <div
                     className="w-full h-dvh flex items-center justify-start pl-10 lg:pl-20 overflow-hidden"
                     id="img-wrap4"
                 >
-                    <div className="overflow-wrap" id="overflow-wrap4">
-                        <Image src={m28} className="rounded-xl border-4 border-pink-50" />
+                    <div className="overflow-wrap rounded-xl border-4 border-pink-50" id="overflow-wrap4">
+                        <img src={'/images/m28.jpg'} className="object-cover! h-full" />
                     </div>
                 </div>
                 <div
                     className="w-full h-dvh flex items-center justify-end pr-10 lg:pr-20 overflow-hidden"
                     id="img-wrap5"
                 >
-                    <div className="overflow-wrap" id="overflow-wrap5">
-                        <Image src={m29} className="rounded-xl border-4 border-pink-50" />
+                    <div className="overflow-wrap rounded-xl border-4 border-pink-50" id="overflow-wrap5">
+                        <img src={'/images/m29.jpg'} className="object-cover! h-full" />
                     </div>
                 </div>
                 <div
                     className="w-full h-dvh flex items-center justify-start pl-10 lg:pl-20 overflow-hidden"
                     id="img-wrap6"
                 >
-                    <div className="overflow-wrap" id="overflow-wrap6">
-                        <Image src={m49} className="rounded-xl border-4 border-pink-50" />
+                    <div className="overflow-wrap rounded-xl border-4 border-pink-50" id="overflow-wrap6">
+                        <img src={'/images/m49.jpg'} className="object-cover! h-full" />
                     </div>
                 </div>
             </section>
