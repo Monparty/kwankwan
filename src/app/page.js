@@ -76,16 +76,11 @@ export default function Home() {
 
     const triggerConfetti = () => {
         setShowConfetti(true);
-        setTimeout(() => setShowConfetti(false), 3000); // Hide after 3 seconds
+        setTimeout(() => setShowConfetti(false), 3000);
     };
 
     const heart1 = (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="60"
-            height="60"
-            viewBox="0 0 24 24"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24">
             <path
                 fill="#fb64b6"
                 fill-opacity="0"
@@ -109,23 +104,13 @@ export default function Home() {
                 stroke-width="2"
                 d="M12 8c0 0 0 0 -0.76 -1c-0.88 -1.16 -2.18 -2 -3.74 -2c-2.49 0 -4.5 2.01 -4.5 4.5c0 0.93 0.28 1.79 0.76 2.5c0.81 1.21 8.24 9 8.24 9M12 8c0 0 0 0 0.76 -1c0.88 -1.16 2.18 -2 3.74 -2c2.49 0 4.5 2.01 4.5 4.5c0 0.93 -0.28 1.79 -0.76 2.5c-0.81 1.21 -8.24 9 -8.24 9"
             >
-                <animate
-                    fill="freeze"
-                    attributeName="stroke-dashoffset"
-                    dur="0.7s"
-                    values="32;0"
-                />
+                <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.7s" values="32;0" />
             </path>
         </svg>
     );
 
     const heart2 = (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="60"
-            height="60"
-            viewBox="0 0 24 24"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24">
             <path
                 fill="#fb64b6"
                 fill-opacity="0"
@@ -149,23 +134,13 @@ export default function Home() {
                 stroke-width="2"
                 d="M12 8c0 0 0 0 -0.76 -1c-0.88 -1.16 -2.18 -2 -3.74 -2c-2.49 0 -4.5 2.01 -4.5 4.5c0 0.93 0.28 1.79 0.76 2.5c0.81 1.21 8.24 9 8.24 9M12 8c0 0 0 0 0.76 -1c0.88 -1.16 2.18 -2 3.74 -2c2.49 0 4.5 2.01 4.5 4.5c0 0.93 -0.28 1.79 -0.76 2.5c-0.81 1.21 -8.24 9 -8.24 9"
             >
-                <animate
-                    fill="freeze"
-                    attributeName="stroke-dashoffset"
-                    dur="0.7s"
-                    values="32;0"
-                />
+                <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.7s" values="32;0" />
             </path>
         </svg>
     );
 
     const arrow = (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="40"
-            height="40"
-            viewBox="0 0 24 24"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
             <path
                 fill="none"
                 stroke="#fff"
@@ -318,11 +293,12 @@ export default function Home() {
             },
         });
 
-        let widthImgScroll = "60dvw";
+        const widthImgScroll = "60dvw";
+        const heightImgScroll = "80dvh";
 
         gsap.to("#overflow-wrap1", {
             width: widthImgScroll,
-            height: "80dvh",
+            height: heightImgScroll,
             ease: "none",
             borderRadius: "14px",
             scrollTrigger: {
@@ -330,13 +306,15 @@ export default function Home() {
                 start: "center center",
                 end: "+=100%",
                 pin: true,
-                scrub: true,
+                scrub: 1,
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
             },
         });
 
         gsap.to("#overflow-wrap2", {
             width: widthImgScroll,
-            height: "80dvh",
+            height: heightImgScroll,
             ease: "none",
             borderRadius: "14px",
             scrollTrigger: {
@@ -344,13 +322,15 @@ export default function Home() {
                 start: "center center",
                 end: "+=100%",
                 pin: true,
-                scrub: true,
+                scrub: 1,
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
             },
         });
 
         gsap.to("#overflow-wrap3", {
             width: widthImgScroll,
-            height: "80dvh",
+            height: heightImgScroll,
             ease: "none",
             borderRadius: "14px",
             scrollTrigger: {
@@ -358,13 +338,15 @@ export default function Home() {
                 start: "center center",
                 end: "+=100%",
                 pin: true,
-                scrub: true,
+                scrub: 1,
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
             },
         });
 
         gsap.to("#overflow-wrap4", {
             width: widthImgScroll,
-            height: "80dvh",
+            height: heightImgScroll,
             ease: "none",
             borderRadius: "14px",
             scrollTrigger: {
@@ -372,13 +354,15 @@ export default function Home() {
                 start: "center center",
                 end: "+=100%",
                 pin: true,
-                scrub: true,
+                scrub: 1,
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
             },
         });
 
         gsap.to("#overflow-wrap5", {
             width: widthImgScroll,
-            height: "80dvh",
+            height: heightImgScroll,
             ease: "none",
             borderRadius: "14px",
             scrollTrigger: {
@@ -386,13 +370,15 @@ export default function Home() {
                 start: "center center",
                 end: "+=100%",
                 pin: true,
-                scrub: true,
+                scrub: 1,
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
             },
         });
 
         gsap.to("#overflow-wrap6", {
             width: widthImgScroll,
-            height: "80dvh",
+            height: heightImgScroll,
             ease: "none",
             borderRadius: "14px",
             scrollTrigger: {
@@ -400,7 +386,9 @@ export default function Home() {
                 start: "center center",
                 end: "+=100%",
                 pin: true,
-                scrub: true,
+                scrub: 1,
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
             },
         });
 
@@ -426,13 +414,7 @@ export default function Home() {
                     scale: gsap.utils.mapRange(1, cards.length, 0.4, 0.9, i),
                     filter:
                         "blur(" +
-                        gsap.utils.mapRange(
-                            1,
-                            cards.length,
-                            4,
-                            25,
-                            cards.length - i
-                        ) +
+                        gsap.utils.mapRange(1, cards.length, 4, 25, cards.length - i) +
                         "px)",
                     scrollTrigger: {
                         trigger: card,
@@ -471,16 +453,10 @@ export default function Home() {
             </div>
             <section className="w-full h-dvh bg-linear-to-t from-pink-100 to-pink-300 grid place-items-center relative">
                 <div className="grid gap-6 text-pink-400">
-                    <h1
-                        ref={h1}
-                        className="text-4xl lg:text-6xl font-bold text-center headtitle"
-                    >
+                    <h1 ref={h1} className="text-4xl lg:text-6xl font-bold text-center headtitle">
                         Happy anniversary
                     </h1>
-                    <h1
-                        ref={h2}
-                        className="text-4xl lg:text-6xl font-bold text-center headtitle"
-                    >
+                    <h1 ref={h2} className="text-4xl lg:text-6xl font-bold text-center headtitle">
                         5 month
                     </h1>
                 </div>
@@ -703,34 +679,13 @@ export default function Home() {
                     className="snap-x flex overflow-x-scroll gap-4 snap-mandatory w-80 border-4 border-pink-50 rounded-xl hidden-scrollbar"
                     ref={scrollableDivRef}
                 >
-                    <Image
-                        src={m33}
-                        className="snap-center w-full h-80 object-cover"
-                    />
-                    <Image
-                        src={m34}
-                        className="snap-center w-full h-80 object-cover"
-                    />
-                    <Image
-                        src={m35}
-                        className="snap-center w-full h-80 object-cover"
-                    />
-                    <Image
-                        src={m36}
-                        className="snap-center w-full h-80 object-cover"
-                    />
-                    <Image
-                        src={m37}
-                        className="snap-center w-full h-80 object-cover"
-                    />
-                    <Image
-                        src={m38}
-                        className="snap-center w-full h-80 object-cover"
-                    />
-                    <Image
-                        src={m53}
-                        className="snap-center w-full h-80 object-cover"
-                    />
+                    <Image src={m33} className="snap-center w-full h-80 object-cover" />
+                    <Image src={m34} className="snap-center w-full h-80 object-cover" />
+                    <Image src={m35} className="snap-center w-full h-80 object-cover" />
+                    <Image src={m36} className="snap-center w-full h-80 object-cover" />
+                    <Image src={m37} className="snap-center w-full h-80 object-cover" />
+                    <Image src={m38} className="snap-center w-full h-80 object-cover" />
+                    <Image src={m53} className="snap-center w-full h-80 object-cover" />
                 </div>
                 <button
                     className="hidden lg:flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full rotate-180 hover:bg-pink-400 active:bg-pink-400"
@@ -809,48 +764,66 @@ export default function Home() {
                     className="w-full h-dvh flex items-center justify-end pr-10 lg:pr-20 overflow-hidden"
                     id="img-wrap1"
                 >
-                    <div className="overflow-wrap border-4 border-pink-50 rounded-xl" id="overflow-wrap1">
-                        <img src={'/images/m13.jpg'} className="object-cover! h-full" />
+                    <div
+                        className="overflow-wrap border-4 border-pink-50 rounded-xl"
+                        id="overflow-wrap1"
+                    >
+                        <Image src={m13} className="object-cover! h-full" />
                     </div>
                 </div>
                 <div
                     className="w-full h-dvh flex items-center justify-start pl-10 lg:pl-20 overflow-hidden"
                     id="img-wrap2"
                 >
-                    <div className="overflow-wrap rounded-xl border-4 border-pink-50" id="overflow-wrap2">
-                        <img src={'/images/m14.jpg'} className="object-cover! h-full" />
+                    <div
+                        className="overflow-wrap rounded-xl border-4 border-pink-50"
+                        id="overflow-wrap2"
+                    >
+                        <Image src={m14} className="object-cover! h-full" />
                     </div>
                 </div>
                 <div
                     className="w-full h-dvh flex items-center justify-end pr-10 lg:pr-20 overflow-hidden"
                     id="img-wrap3"
                 >
-                    <div className="overflow-wrap rounded-xl border-4 border-pink-50" id="overflow-wrap3">
-                        <img src={'/images/m19.jpg'} className="object-cover! h-full" />
+                    <div
+                        className="overflow-wrap rounded-xl border-4 border-pink-50"
+                        id="overflow-wrap3"
+                    >
+                        <Image src={m19} className="object-cover! h-full" />
                     </div>
                 </div>
                 <div
                     className="w-full h-dvh flex items-center justify-start pl-10 lg:pl-20 overflow-hidden"
                     id="img-wrap4"
                 >
-                    <div className="overflow-wrap rounded-xl border-4 border-pink-50" id="overflow-wrap4">
-                        <img src={'/images/m28.jpg'} className="object-cover! h-full" />
+                    <div
+                        className="overflow-wrap rounded-xl border-4 border-pink-50"
+                        id="overflow-wrap4"
+                    >
+                        <Image src={m28} className="object-cover! h-full" />
                     </div>
                 </div>
                 <div
                     className="w-full h-dvh flex items-center justify-end pr-10 lg:pr-20 overflow-hidden"
                     id="img-wrap5"
                 >
-                    <div className="overflow-wrap rounded-xl border-4 border-pink-50" id="overflow-wrap5">
-                        <img src={'/images/m29.jpg'} className="object-cover! h-full" />
+                    <div
+                        className="overflow-wrap rounded-xl border-4 border-pink-50"
+                        id="overflow-wrap5"
+                    >
+                        <Image src={m29} className="object-cover! h-full" />
                     </div>
                 </div>
                 <div
                     className="w-full h-dvh flex items-center justify-start pl-10 lg:pl-20 overflow-hidden"
                     id="img-wrap6"
                 >
-                    <div className="overflow-wrap rounded-xl border-4 border-pink-50" id="overflow-wrap6">
-                        <img src={'/images/m49.jpg'} className="object-cover! h-full" />
+                    <div
+                        className="overflow-wrap rounded-xl border-4 border-pink-50"
+                        id="overflow-wrap6"
+                    >
+                        <Image src={m49} className="object-cover! h-full" />
                     </div>
                 </div>
             </section>
@@ -865,41 +838,68 @@ export default function Home() {
             <div className="container-3d">
                 <div className="cards">
                     <div className="card">
-                        <Image src={m4} className="rounded-xl border-4 border-pink-50 object-cover" />
+                        <Image
+                            src={m4}
+                            className="rounded-xl border-4 border-pink-50 object-cover"
+                        />
                     </div>
                     <div className="card">
-                        <Image src={m47} className="rounded-xl border-4 border-pink-50 object-cover" />
+                        <Image
+                            src={m47}
+                            className="rounded-xl border-4 border-pink-50 object-cover"
+                        />
                     </div>
                     <div className="card">
-                        <Image src={m33} className="rounded-xl border-4 border-pink-50 object-cover" />
+                        <Image
+                            src={m33}
+                            className="rounded-xl border-4 border-pink-50 object-cover"
+                        />
                     </div>
                     <div className="card">
-                        <Image src={m50} className="rounded-xl border-4 border-pink-50 object-cover" />
+                        <Image
+                            src={m50}
+                            className="rounded-xl border-4 border-pink-50 object-cover"
+                        />
                     </div>
                     <div className="card">
-                        <Image src={m51} className="rounded-xl border-4 border-pink-50 object-cover" />
+                        <Image
+                            src={m51}
+                            className="rounded-xl border-4 border-pink-50 object-cover"
+                        />
                     </div>
                     <div className="card">
-                        <Image src={m52} className="rounded-xl border-4 border-pink-50 object-cover" />
+                        <Image
+                            src={m52}
+                            className="rounded-xl border-4 border-pink-50 object-cover"
+                        />
                     </div>
                     <div className="card">
-                        <Image src={m53} className="rounded-xl border-4 border-pink-50 object-cover" />
+                        <Image
+                            src={m53}
+                            className="rounded-xl border-4 border-pink-50 object-cover"
+                        />
                     </div>
                     <div className="card">
-                        <Image src={m40} className="rounded-xl border-4 border-pink-50 object-cover" />
+                        <Image
+                            src={m40}
+                            className="rounded-xl border-4 border-pink-50 object-cover"
+                        />
                     </div>
                     <div className="card">
-                        <Image src={m1} className="rounded-xl border-4 border-pink-50 object-cover" />
+                        <Image
+                            src={m1}
+                            className="rounded-xl border-4 border-pink-50 object-cover"
+                        />
                     </div>
                 </div>
             </div>
             <div className="following-content bg-linear-to-t from-pink-400 to-pink-300">
                 <div className="text-2xl! font-bold text-white pb-4">
-                    I'm so lucky to have you.<br />Thank you for always supporting me
+                    I'm so lucky to have you.
+                    <br />
+                    Thank you for always supporting me
                 </div>
-                <div className="text-2xl! font-bold text-white">
-                    I love you 💗
-                </div>
+                <div className="text-2xl! font-bold text-white">I love you 💗</div>
                 <button
                     onClick={scrollToTop}
                     className="absolute bottom-10 right-10 z-10 flex justify-center items-center cursor-pointer bg-pink-300 h-16 w-16 rounded-full hover:bg-pink-400 active:bg-pink-400 rotate-90"
