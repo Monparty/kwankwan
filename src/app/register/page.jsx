@@ -2,10 +2,11 @@
 import React, { useState } from "react";
 
 function page() {
-    const [v, setV] = useState("");
-    const inputClass =
-        "border-3 p-3 rounded-2xl border-pink-200 bg-pink-50 inset-shadow-sm shadow-sm shadow-pink-200 focus:ring-pink-100 focus:ring-3 transition-all outline-0";
-    const ckOption = [
+    const [name, setName] = useState("");
+    const [message, setMessage] = useState("");
+    const [range, setRange] = useState("2");
+    const [feel, setFeel] = useState("");
+    const [checkbox, setCheckbox] = useState([
         {
             id: 1,
             title: "กอดๆ",
@@ -36,7 +37,27 @@ function page() {
             title: "...",
             img: "https://cdn-icons-png.flaticon.com/512/9633/9633753.png",
         },
-    ];
+    ]);
+
+    const onChangeCheckbox = (id, e) => {
+        setCheckbox((prev) => {
+            const exist = prev.find((item) => item.id === id);
+
+            if (exist) {
+                // update
+                return prev.map((item) =>
+                    item.id === id ? { ...item, check: e.target.checked } : item
+                );
+            }
+
+            // add new
+            return [...prev, { id, check: e.target.checked }];
+        });
+    };
+
+    const inputClass =
+        "border-3 p-3 rounded-2xl border-pink-200 bg-pink-50 inset-shadow-sm shadow-sm shadow-pink-200 focus:ring-pink-100 focus:ring-3 transition-all outline-0 placeholder-gray-400 placeholder-opacity-75";
+
     return (
         <div className="container mx-auto py-4 lg:w-1/2 p-2">
             <form className="grid gap-4 text-center border-5 p-4 lg:p-6 rounded-2xl bg-[#FFF3FD] border-pink-300 shadow-lg shadow-pink-200">
@@ -44,82 +65,116 @@ function page() {
                     ระบบลงทะเบียนความคิดถึง
                 </h1>
                 <div className="grid">
-                    <input className={inputClass} placeholder="ชื่อผู้คิดถึง" />
+                    <input
+                        className={inputClass}
+                        placeholder="ชื่อผู้คิดถึง"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
                 </div>
                 <div className="grid">
-                    <input className={inputClass} placeholder="ข้อความ" />
+                    <input
+                        className={inputClass}
+                        placeholder="ข้อความ"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                    />
                 </div>
                 <div className="grid">
-                        <label for="labels-range-input" className="sr-only">
-                            Labels range
-                        </label>
-                        <input
-                            id="labels-range-input"
-                            type="range"
-                            min="0"
-                            max="4"
-                            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-pink-300 my-3"
-                        />
-                        <div className="flex justify-between mb-2">
-                            <span className="text-sm text-gray-500">
-                                <div className="text-center">
-                                    <div>😐</div>
-                                    <div className="text-xs font-semibold">
-                                        ไม่ค่อย
-                                        <br />
-                                        คิดถึง
-                                    </div>
+                    <label for="labels-range-input" className="sr-only">
+                        Labels range
+                    </label>
+                    <input
+                        id="labels-range-input"
+                        type="range"
+                        min="0"
+                        max="4"
+                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-pink-300 my-3"
+                        onChange={(e) => setRange(e.target.value)}
+                    />
+                    <div className="flex justify-between mb-2">
+                        <span className="text-sm text-gray-500">
+                            <div className="text-center">
+                                <div>😐</div>
+                                <div
+                                    className={`text-xs font-semibold ${
+                                        range === "0" ? "text-pink-400" : ""
+                                    }`}
+                                >
+                                    ไม่ค่อย
+                                    <br />
+                                    คิดถึง
                                 </div>
-                            </span>
-                            <span className="text-sm text-gray-500">
-                                <div className="text-center">
-                                    <div>😊</div>
-                                    <div className="text-xs font-semibold">
-                                        คิดถึง
-                                        <br />
-                                        นิดหน่อย
-                                    </div>
+                            </div>
+                        </span>
+                        <span className="text-sm text-gray-500">
+                            <div className="text-center">
+                                <div>😊</div>
+                                <div
+                                    className={`text-xs font-semibold ${
+                                        range === "1" ? "text-pink-400" : ""
+                                    }`}
+                                >
+                                    คิดถึง
+                                    <br />
+                                    นิดหน่อย
                                 </div>
-                            </span>
-                            <span className="text-sm text-gray-500">
-                                <div className="text-center">
-                                    <div>😚</div>
-                                    <div className="text-xs font-semibold">
-                                        คิดถึง
-                                        <br />
-                                        เฉยๆ
-                                    </div>
+                            </div>
+                        </span>
+                        <span className="text-sm text-gray-500">
+                            <div className="text-center">
+                                <div>😚</div>
+                                <div
+                                    className={`text-xs font-semibold ${
+                                        range === "2" ? "text-pink-400" : ""
+                                    }`}
+                                >
+                                    คิดถึง
+                                    <br />
+                                    เฉยๆ
                                 </div>
-                            </span>
-                            <span className="text-sm text-gray-500">
-                                <div className="text-center">
-                                    <div>🥰</div>
-                                    <div className="text-xs font-semibold">
-                                        คิดถึง
-                                        <br />
-                                        มาก
-                                    </div>
+                            </div>
+                        </span>
+                        <span className="text-sm text-gray-500">
+                            <div className="text-center">
+                                <div>🥰</div>
+                                <div
+                                    className={`text-xs font-semibold ${
+                                        range === "3" ? "text-pink-400" : ""
+                                    }`}
+                                >
+                                    คิดถึง
+                                    <br />
+                                    มาก
                                 </div>
-                            </span>
-                            <span className="text-sm text-gray-500">
-                                <div className="text-center">
-                                    <div>😭</div>
-                                    <div className="text-xs font-semibold">
-                                        คิดถึง
-                                        <br />
-                                        สุดๆ
-                                    </div>
+                            </div>
+                        </span>
+                        <span className="text-sm text-gray-500">
+                            <div className="text-center">
+                                <div>😭</div>
+                                <div
+                                    className={`text-xs font-semibold ${
+                                        range === "4" ? "text-pink-400" : ""
+                                    }`}
+                                >
+                                    คิดถึง
+                                    <br />
+                                    สุดๆ
                                 </div>
-                            </span>
-                        </div>
+                            </div>
+                        </span>
+                    </div>
                 </div>
                 <div className="grid grid-cols-2 gap-3 lg:gap-4">
-                    {ckOption.map((item) => (
+                    {checkbox.map((item) => (
                         <div key={item.id}>
                             <input
-                                type="checkbox"
+                                type="radio"
+                                name="xxx"
                                 id={item.id}
                                 className="hidden peer"
+                                value={item.title}
+                                onChange={(e) => onChangeCheckbox(item.id, e)}
                             />
                             <label
                                 for={item.id}
@@ -129,29 +184,28 @@ function page() {
                                     <img
                                         src={item.img}
                                         alt={item.title}
-                                        className="w-10 h-10 object-cover"
+                                        className={`w-10 h-10 object-cover ${
+                                            item.check ? "animate-bounce" : ""
+                                        }`}
                                     />
-                                    <div className="w-full text-sm font-semibold">
-                                        {item.title}
-                                    </div>
+                                    <div className="w-full text-sm font-semibold">{item.title}</div>
                                 </div>
                             </label>
                         </div>
                     ))}
                 </div>
                 <div className="grid">
-                    <label htmlFor=""></label>
                     <textarea
                         className={inputClass}
-                        onChange={(e) => setV(e.target.value)}
+                        onChange={(e) => setFeel(e.target.value)}
                         rows={4}
                         maxLength={200}
                         placeholder="ความรู้สึกในหัวใจ"
-                    ></textarea>
+                    >
+                        {feel}
+                    </textarea>
                     <div className="flex justify-end pt-2 pr-2">
-                        <p className="text-xs font-semibold text-gray-400">
-                            {v.length} / 200
-                        </p>
+                        <p className="text-xs font-semibold text-gray-400">{feel.length} / 200</p>
                     </div>
                 </div>
                 <button
