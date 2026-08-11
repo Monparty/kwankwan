@@ -73,7 +73,7 @@ function page() {
                     ))}
                 </div>
                 <p className="text-sm text-red-400 font-bold">{alertText}</p>
-                <button type="button" onClick={checkPass} className="text-[2.5rem] focus:text-[4rem]">
+                <button type="button" onClick={checkPass} className="text-[2.5rem] active:text-[4rem]">
                     🔒
                 </button>
             </div>

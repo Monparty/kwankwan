@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 
-function CardButton({ label, desc, img }) {
+function CardButton({ label, desc, img, onClick }) {
     const bgBoxRef = useRef(null);
     const boxRef = useRef(null);
     const btnRef = useRef(null);
@@ -63,10 +63,13 @@ function CardButton({ label, desc, img }) {
             <div ref={bgBoxRef} className="bg-box absolute inset-0 rounded-2xl" />
             <div className="relative flex flex-col items-center gap-2 rounded-2xl border-pink-100 p-2">
                 <button
-                    onClick={handleBtnClick}
+                    onClick={() => {
+                        handleBtnClick();
+                        onClick();
+                    }}
                     ref={btnRef}
                     type="button"
-                    className=" translate-y-30 relative z-10 rounded-full border border-pink-100 bg-white px-6 py-1.5 text-sm font-semibold text-pink-600 shadow-sm transition-colors hover:bg-pink-500 hover:text-white"
+                    className=" translate-y-30 relative z-10 rounded-full border border-pink-100 bg-white px-6 py-1.5 text-sm font-semibold text-pink-600 shadow-sm transition-colors hover:bg-pink-500 hover:text-white active:bg-pink-500 active:text-white"
                 >
                     {label}
                 </button>
