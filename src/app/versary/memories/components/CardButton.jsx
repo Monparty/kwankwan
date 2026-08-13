@@ -74,7 +74,9 @@ function CardButton({ label, desc, img, onClick }) {
                     {label}
                 </button>
                 <div ref={boxRef} className="flex flex-col items-center gap-2 opacity-0">
-                    <p className="text-center text-sm leading-relaxed text-gray-500">{desc}</p>
+                    <p className="text-center text-md leading-relaxed text-gray-500">
+                        {desc}
+                    </p>
                     <div className="flex min-h-[12rem] w-full items-center justify-center overflow-hidden rounded-xl border border-gray-100 bg-white p-2 shadow-inner">
                         <Image
                             src={img}
