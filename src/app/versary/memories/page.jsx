@@ -192,7 +192,7 @@ function page() {
                     </div>
                     <div className="flex-1 flex items-center justify-center">
                         <CardButton
-                            label="15 กุมภา"
+                            label="14 กุมภา"
                             desc="วันครบรอบ 1 ปี 🥳"
                             img={m2_5}
                             onClick={() => playAnime("anime2")}
