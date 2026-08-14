@@ -29,6 +29,7 @@ import m7_1 from "../../../../public/images/versary/m7_1.jpg";
 import m7_2 from "../../../../public/images/versary/m7_2.jpg";
 import m7_3 from "../../../../public/images/versary/m7_3.jpg";
 import m7_4 from "../../../../public/images/versary/m7_4.jpg";
+// import vdo_kwan from "../../../../public/images/versary/vdo_kwan.mp4";
 import CardButton from "./components/CardButton";
 import Fireworks from "@/app/components/Fireworks";
 import { SplitText } from "gsap/all";
@@ -120,6 +121,17 @@ function page() {
             duration: 1,
             ease: "elastic.out(1, 0.5)",
         });
+        const textDest = SplitText.create(".text-dest", { type: "chars" });
+
+        gsap.from(textDest.chars, {
+            rotation: 90,
+            transformOrigin: "top center",
+            opacity: 0,
+            stagger: 0.05,
+            duration: 1,
+            delay: 2.5,
+            ease: "elastic.out(1, 0.5)",
+        });
     }, []);
 
     return (
@@ -130,7 +142,7 @@ function page() {
                     <br />
                     รู้ตัวอีกทีก็สิงหาแล้วเนอะ
                 </h2>
-                <h3 className="text-lg text-gray-400 mb-4 font-bold text-dest">ค่อยๆเลื่อนดูนะ</h3>
+                <h3 className="text-lg text-gray-400 mb-4 font-semibold text-dest">ค่อยๆเลื่อนดูนะ</h3>
             </section>
             <section className="bg-pink-100 h-[60dvh]">
                 <div className="w-full h-full flex">
@@ -369,19 +381,46 @@ function page() {
                     type="button"
                     className="relative z-10 rounded-full border border-pink-100 bg-white px-10 py-4 text-xl font-semibold text-pink-600 shadow-md transition-colors hover:bg-pink-500 hover:text-white"
                 >
-                    💖
+                    ❤️
                 </button>
                 {open && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
                         <div ref={modalRef} className="w-[400px] rounded-xl bg-white p-6 shadow-xl">
-                            <div className="flex justify-end mb-6">
-                                <button onClick={closeModal} className="rounded-lg bg-gray-400 py-1 px-3 text-white">
-                                    X
+                            <div className="flex justify-end mb-3">
+                                <button
+                                    onClick={closeModal}
+                                    className="rounded-lg flex items-center justify-center bg-pink-300 p-1 text-white"
+                                >
+                                    <svg
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M16 16L12 12M12 12L8 8M12 12L16 8M12 12L8 16"
+                                            stroke="#ffffff"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        />
+                                    </svg>
                                 </button>
+                            </div>
+                            <div className="flex items-center justify-center mb-2">
+                                <video
+                                    src="/images/versary/vdo_kwan.mp4"
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    className="w-1/2 rounded-lg"
+                                />
                             </div>
                             <p className="mb-6 text-gray-600">
                                 สุขสันต์วันครบรอบนะแฟน ขอบคุณนะที่อยู่กับเค้ามาตลอด
-                                ขอให้เราได้อยู่ด้วยกันสร้างความทรงจำดีๆ แบบนี้ไปอีกนานๆ เลยนะ 💖💞💓
+                                ขอให้เราได้อยู่ด้วยกันสร้างความทรงจำดีๆ แบบนี้ไปอีกนานๆ เลยนะ ❤️💞💓
                             </p>
                         </div>
                     </div>
