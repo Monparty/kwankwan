@@ -385,7 +385,7 @@ function page() {
                 </button>
                 {open && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-                        <div ref={modalRef} className="w-[400px] rounded-xl bg-white p-6 shadow-xl">
+                        <div ref={modalRef} className="w-[90dvw] rounded-xl bg-white p-6 shadow-xl">
                             <div className="flex justify-end mb-3">
                                 <button
                                     onClick={closeModal}
@@ -408,7 +408,7 @@ function page() {
                                     </svg>
                                 </button>
                             </div>
-                            <div className="flex items-center justify-center mb-2">
+                            <div className="flex items-center justify-center mb-3">
                                 <video
                                     src="/images/versary/vdo_kwan.mp4"
                                     autoPlay
