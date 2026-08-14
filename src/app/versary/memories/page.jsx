@@ -1,7 +1,7 @@
 "use client";
 import gsap from "gsap";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import m1_1 from "../../../../public/images/versary/m1_1.jpg";
 import m1_2 from "../../../../public/images/versary/m1_2.jpg";
 import m1_3 from "../../../../public/images/versary/m1_3.jpg";
@@ -31,6 +31,7 @@ import m7_3 from "../../../../public/images/versary/m7_3.jpg";
 import m7_4 from "../../../../public/images/versary/m7_4.jpg";
 import CardButton from "./components/CardButton";
 import Fireworks from "@/app/components/Fireworks";
+import { SplitText } from "gsap/all";
 
 function page() {
     const propImages = {
@@ -106,18 +107,32 @@ function page() {
         }, 2000);
     };
 
+    useEffect(() => {
+        // text hero useEffect
+        gsap.registerPlugin(SplitText);
+        const split = SplitText.create(".text-hero", { type: "chars" });
+
+        gsap.from(split.chars, {
+            rotation: 90,
+            transformOrigin: "top center",
+            opacity: 0,
+            stagger: 0.05,
+            duration: 1,
+            ease: "elastic.out(1, 0.5)",
+        });
+    }, []);
+
     return (
         <div className="text-black border-black border">
-            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full border border-pink-300 w-fit"></div>
             <section className="bg-pink-100 h-[30dvh] flex flex-col items-center justify-center">
-                <h2 className="text-2xl text-center font-bold text-pink-400 mb-6 leading-9">
+                <h2 className="text-2xl text-center font-bold text-pink-400 mb-6 leading-9 text-hero">
                     Recap 2026 ผ่านไปไวมากก
                     <br />
                     รู้ตัวอีกทีก็สิงหาแล้วเนอะ
                 </h2>
-                <h3 className="text-lg text-gray-400 mb-4 font-bold">ค่อยๆเลื่อนดูนะ</h3>
+                <h3 className="text-lg text-gray-400 mb-4 font-bold text-dest">ค่อยๆเลื่อนดูนะ</h3>
             </section>
-            <section className="bg-pink-100 h-[50dvh]">
+            <section className="bg-pink-100 h-[60dvh]">
                 <div className="w-full h-full flex">
                     <div className="flex-1 flex items-center justify-center">
                         <CardButton
@@ -147,7 +162,7 @@ function page() {
                     ></path>
                 </svg>
             </section>
-            <section className="bg-pink-200 h-[50dvh]">
+            <section className="bg-pink-200 h-[60dvh]">
                 <div className="w-full h-full flex">
                     <div className="flex-1 flex flex-col gap-4 items-center justify-center">
                         <div className="p-1 pb-3 shadow-md bg-white rounded-md -rotate-6 opacity-0 anime2">
@@ -180,10 +195,10 @@ function page() {
                     ></path>
                 </svg>
             </section>
-            <section className="bg-pink-300 h-[50dvh]">
+            <section className="bg-pink-300 h-[60dvh]">
                 <div className="w-full h-full flex">
                     <div className="flex-1 flex items-center justify-center">
-                        <CardButton label="8 มีนา" desc="เหมียๆ 🐱" img={m3_1} onClick={() => playAnime("anime3")} />
+                        <CardButton label="8 มีนา" desc="เหมียวๆ 🐱" img={m3_1} onClick={() => playAnime("anime3")} />
                     </div>
                     <div className="flex-1 flex flex-col gap-4 items-center justify-center">
                         <div className="p-1 pb-3 shadow-md bg-white rounded-md -rotate-6 opacity-0 anime3">
@@ -202,7 +217,7 @@ function page() {
                     ></path>
                 </svg>
             </section>
-            <section className="bg-pink-400 h-[50dvh]">
+            <section className="bg-pink-400 h-[60dvh]">
                 <div className="w-full h-full flex">
                     <div className="flex-1 flex flex-col gap-4 items-center justify-center">
                         <div className="p-1 pb-3 shadow-md bg-white rounded-md -rotate-6 opacity-0 anime4">
@@ -232,7 +247,7 @@ function page() {
                     ></path>
                 </svg>
             </section>
-            <section className="bg-pink-100 h-[50dvh]">
+            <section className="bg-pink-100 h-[60dvh]">
                 <div className="w-full h-full flex">
                     <div className="flex-1 flex items-center justify-center">
                         <CardButton
@@ -255,11 +270,11 @@ function page() {
                     <path
                         fill="#fce7f3"
                         fill-opacity="1"
-                        d="M0,64L12.6,58.7C25.3,53,51,43,76,85.3C101.1,128,126,224,152,224C176.8,224,202,128,227,90.7C252.6,53,278,75,303,112C328.4,149,354,203,379,208C404.2,213,429,171,455,176C480,181,505,235,531,250.7C555.8,267,581,245,606,213.3C631.6,181,657,139,682,138.7C707.4,139,733,181,758,213.3C783.2,245,808,267,834,245.3C858.9,224,884,160,909,149.3C934.7,139,960,181,985,208C1010.5,235,1036,245,1061,229.3C1086.3,213,1112,171,1137,160C1162.1,149,1187,171,1213,154.7C1237.9,139,1263,85,1288,96C1313.7,107,1339,181,1364,192C1389.5,203,1415,149,1427,122.7L1440,96L1440,0L1427.4,0C1414.7,0,1389,0,1364,0C1338.9,0,1314,0,1288,0C1263.2,0,1238,0,1213,0C1187.4,0,1162,0,1137,0C1111.6,0,1086,0,1061,0C1035.8,0,1011,0,985,0C960,0,935,0,909,0C884.2,0,859,0,834,0C808.4,0,783,0,758,0C732.6,0,707,0,682,0C656.8,0,632,0,606,0C581.1,0,556,0,531,0C505.3,0,480,0,455,0C429.5,0,404,0,379,0C353.7,0,328,0,303,0C277.9,0,253,0,227,0C202.1,0,177,0,152,0C126.3,0,101,0,76,0C50.5,0,25,0,13,0L0,0Z"
+                        d="M0,160L21.8,154.7C43.6,149,87,139,131,160C174.5,181,218,235,262,224C305.5,213,349,139,393,144C436.4,149,480,235,524,250.7C567.3,267,611,213,655,176C698.2,139,742,117,785,112C829.1,107,873,117,916,154.7C960,192,1004,256,1047,272C1090.9,288,1135,256,1178,250.7C1221.8,245,1265,267,1309,256C1352.7,245,1396,203,1418,181.3L1440,160L1440,0L1418.2,0C1396.4,0,1353,0,1309,0C1265.5,0,1222,0,1178,0C1134.5,0,1091,0,1047,0C1003.6,0,960,0,916,0C872.7,0,829,0,785,0C741.8,0,698,0,655,0C610.9,0,567,0,524,0C480,0,436,0,393,0C349.1,0,305,0,262,0C218.2,0,175,0,131,0C87.3,0,44,0,22,0L0,0Z"
                     ></path>
                 </svg>
             </section>
-            <section className="bg-pink-200 h-[50dvh]">
+            <section className="bg-pink-200 h-[60dvh]">
                 <div className="w-full h-full flex">
                     <div className="flex-1 flex flex-col gap-4 items-center justify-center">
                         <div className="p-1 pb-3 shadow-md bg-white rounded-md rotate-6 opacity-0 anime6">
@@ -289,7 +304,7 @@ function page() {
                     ></path>
                 </svg>
             </section>
-            <section className="bg-pink-300 h-[50dvh]">
+            <section className="bg-pink-300 h-[60dvh]">
                 <div className="w-full h-full flex">
                     <div className="flex-1 flex items-center justify-center">
                         <CardButton
@@ -352,18 +367,22 @@ function page() {
                 <button
                     onClick={showModal}
                     type="button"
-                    className="relative z-10 rounded-full border border-pink-100 bg-white px-6 py-1.5 text-sm font-semibold text-pink-600 shadow-sm transition-colors hover:bg-pink-500 hover:text-white"
+                    className="relative z-10 rounded-full border border-pink-100 bg-white px-10 py-4 text-xl font-semibold text-pink-600 shadow-md transition-colors hover:bg-pink-500 hover:text-white"
                 >
-                    กดเปิด popup
+                    💖
                 </button>
                 {open && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
                         <div ref={modalRef} className="w-[400px] rounded-xl bg-white p-6 shadow-xl">
-                            <h2 className="mb-4 text-xl font-bold">Modal</h2>
-                            <p className="mb-6 text-gray-600">Hello GSAP 👋</p>
-                            <button onClick={closeModal} className="rounded-lg bg-gray-800 px-4 py-2 text-white">
-                                Close
-                            </button>
+                            <div className="flex justify-end mb-6">
+                                <button onClick={closeModal} className="rounded-lg bg-gray-400 py-1 px-3 text-white">
+                                    X
+                                </button>
+                            </div>
+                            <p className="mb-6 text-gray-600">
+                                สุขสันต์วันครบรอบนะแฟน ขอบคุณนะที่อยู่กับเค้ามาตลอด
+                                ขอให้เราได้อยู่ด้วยกันสร้างความทรงจำดีๆ แบบนี้ไปอีกนานๆ เลยนะ 💖💞💓
+                            </p>
                         </div>
                     </div>
                 )}

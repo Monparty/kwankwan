@@ -8,8 +8,7 @@
 @theme inline {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
+    --font-itim: var(--font-itim);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,7 +21,7 @@
 body {
     background: var(--background);
     color: var(--foreground);
-    font-family: cursive;
+    font-family: var(--font-itim);
     overflow-x: hidden;
 }
 
@@ -42,10 +41,10 @@ body {
     --c: #fb64b6;
     width: 30px;
     aspect-ratio: 1;
-    background: radial-gradient(at 70% 31%, var(--c) 29%, #0000 30%),
+    background:
+        radial-gradient(at 70% 31%, var(--c) 29%, #0000 30%),
         radial-gradient(at 30% 31%, var(--c) 29%, #0000 30%),
-        conic-gradient(from -45deg at 50% 84%, var(--c) 90deg, #0000 0)
-            bottom/100% 50% no-repeat;
+        conic-gradient(from -45deg at 50% 84%, var(--c) 90deg, #0000 0) bottom/100% 50% no-repeat;
 }
 
 /* img zoom scroll */
