@@ -61,7 +61,7 @@ function page() {
         <div className="flex items-center justify-center h-dvh p-8">
             <div className="bg-white border h-1/2 w-full lg:w-1/5 shadow-lg rounded-2xl p-4 flex flex-col items-center justify-center">
                 <h2 className="text-2xl font-bold text-pink-400 mb-2">Enter password</h2>
-                <h3 className="text-sm text-gray-400 mb-4">ระหัสผ่านอะไรน้าา ทายดูซิ้</h3>
+                <h3 className="text-sm text-gray-400 mb-4">รหัสผ่านอะไรน้าา ทายดูซิ้</h3>
                 <div className="flex justify-center gap-3 mb-4 shake">
                     {[0, 1, 2, 3, 4].map((item, index) => (
                         <UseInputPass
